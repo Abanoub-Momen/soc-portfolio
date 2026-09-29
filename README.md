@@ -37,6 +37,4 @@ write-up for each one (objective, steps, tools used, and what I learned).
 - [ ] Wireshark: The Basics (TryHackMe room)
 - [ ] Wireshark: Packet Operations (TryHackMe room)
 
-## Contact
-- Email: 
-- LinkedIn:
+
