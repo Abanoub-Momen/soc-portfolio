@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Abanoub Momen | Junior SOC Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#060b10;--panel:#0b141c;--line:#16303a;--text:#d5e6ea;--muted:#6f8f99;--g:#3ddc97;--a:#f2b84b;--c:#4cc9f0;--mono:"JetBrains Mono",ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.65 "IBM Plex Sans",system-ui,sans-serif;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0);background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 30% 0%,transparent 0,var(--bg) 75%);pointer-events:none}
+.wrap{position:relative;max-width:1000px;margin:0 auto;padding:0 24px}
+a{color:var(--c)}
+:focus-visible{outline:2px solid var(--g);outline-offset:3px}
+h1,h2{font-family:var(--mono);margin:0}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-family:var(--mono);font-size:14px;border-bottom:1px solid var(--line)}
+nav strong{color:var(--g)}
+nav div{display:flex;gap:20px}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--g)}
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;padding:64px 0 72px}
+.hero h1{font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.05;letter-spacing:-.03em}
+.hero h1 span{color:var(--g)}
+.hero p{color:var(--muted);max-width:40ch;margin:20px 0 28px;font-size:1.1rem}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:14px;padding:11px 18px;border-radius:4px;border:1px solid var(--line);color:var(--text);text-decoration:none}
+.btn.main{background:var(--g);color:#032014;border-color:var(--g);font-weight:600}
+.btn:hover{border-color:var(--g)}
+.term{background:#050a0e;border:1px solid var(--line);border-radius:8px;overflow:hidden;font-family:var(--mono);font-size:13.5px;box-shadow:0 0 40px rgba(61,220,151,.08)}
+.bar{display:flex;gap:7px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--panel);align-items:center;color:var(--muted);font-size:12px}
+.bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.bar span{margin-left:8px}
+.body{padding:16px 18px;line-height:1.9}
+.ln{white-space:nowrap;overflow:hidden;opacity:0;animation:show .01s forwards}
+.ln b{color:var(--g);font-weight:400}
+.ln em{color:var(--a);font-style:normal}
+.ln:nth-child(1){animation-delay:.3s}.ln:nth-child(2){animation-delay:.9s}.ln:nth-child(3){animation-delay:1.5s}.ln:nth-child(4){animation-delay:2.1s}.ln:nth-child(5){animation-delay:2.7s}
+.cur{display:inline-block;width:8px;height:15px;background:var(--g);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes show{to{opacity:1}}
+@keyframes blink{50%{opacity:0}}
+section{padding:52px 0;border-top:1px solid var(--line)}
+h2{font-size:1.5rem;margin-bottom:8px}
+h2::before{content:"> ";color:var(--g)}
+.sub{color:var(--muted);margin:0 0 24px;max-width:62ch}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.tag{font-family:var(--mono);font-size:13px;border:1px solid var(--line);background:var(--panel);padding:6px 12px;border-radius:4px}
+.tag.on{border-color:var(--g);color:var(--g)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.grid2 ul{margin:0;padding-left:18px;color:var(--muted)}
+.tbl{border:1px solid var(--line);border-radius:8px;overflow-x:auto;background:var(--panel)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:620px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-weight:400;color:var(--muted);font-size:12.5px;background:#08111a}
+tr:last-child td{border-bottom:0}
+td.t{font-family:var(--mono);color:var(--c);white-space:nowrap;font-size:13px}
+.sev{font-family:var(--mono);font-size:12px;padding:3px 9px;border-radius:3px;border:1px solid var(--a);color:var(--a);white-space:nowrap}
+.sev.ok{border-color:var(--g);color:var(--g)}
+.cmd{font-family:var(--mono);font-size:14px;background:#050a0e;border:1px solid var(--line);border-radius:8px;padding:18px 20px;line-height:2.1;overflow-x:auto}
+.cmd b{color:var(--g);font-weight:400}
+.cmd span{color:var(--muted)}
+.me{width:112px;height:112px;object-fit:cover;border-radius:8px;border:2px solid var(--g);margin-bottom:22px;display:block}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cards.two{grid-template-columns:1fr 1fr}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:20px}
+.card h3{font:600 1.02rem var(--mono);margin:0 0 8px}
+.card p{margin:0 0 12px;color:var(--muted);font-size:15px}
+.card .tags{margin-top:0}
+footer{padding:28px 0 44px;color:var(--muted);font-family:var(--mono);font-size:13px;border-top:1px solid var(--line)}
+@media (max-width:780px){.hero,.grid2,.cards,.cards.two{grid-template-columns:1fr}.hero{padding:40px 0 48px}nav div{gap:12px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ln{animation:none;opacity:1}.cur{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><strong>abanoub@soc:~$</strong><div><a href="#about">about</a><a href="#projects">projects</a><a href="#certs">certs</a><a href="#labs">labs</a><a href="#contact">contact</a></div></nav>
+
+<header class="hero">
+<div>
+<img class="me" src="photo.jpg" alt="Photo of Abanoub Momen"><h1>Abanoub Momen<br><span>Junior SOC Analyst</span></h1>
+<p>Learning to detect, investigate, and report threats. Building my blue team skills with SIEM, log analysis, and packet analysis.</p>
+<div class="btns"><a class="btn main" href="#certs">View certificates</a><a class="btn" href="#contact">Contact me</a></div>
+</div>
+<div class="term" aria-label="Profile summary">
+<div class="bar"><i></i><i></i><i></i><span>analyst-profile.sh</span></div>
+<div class="body">
+<div class="ln"><b>$</b> whoami</div>
+<div class="ln">abanoub-momen</div>
+<div class="ln"><b>$</b> cat track.txt</div>
+<div class="ln">SOC Analyst | DEPI Cybersecurity</div>
+<div class="ln"><b>$</b> status <span class="cur"></span></div>
+</div>
+</div>
+</header>
+
+<section id="about">
+<h2>about</h2>
+<p class="sub">I'm on the Cybersecurity SOC track of the Digital Egypt Pioneers Initiative (DEPI), and I keep learning through online courses. My goal is a Tier 1 SOC analyst role. Based in Sohag, Egypt.</p>
+<div class="grid2">
+<div><strong>Focus areas</strong><div class="tags"><span class="tag on">SIEM</span><span class="tag on">Log analysis</span><span class="tag on">Incident response</span><span class="tag on">Threat detection</span></div></div>
+<div><strong>Security tools</strong><div class="tags"><span class="tag">Splunk</span><span class="tag">Wireshark</span><span class="tag">TryHackMe</span></div></div>
+<div><strong>Programming</strong><div class="tags"><span class="tag">Python</span><span class="tag">C++</span><span class="tag">Java</span><span class="tag">OOP</span><span class="tag">Data structures</span></div></div>
+<div><strong>Systems, networking, web</strong><div class="tags"><span class="tag">Windows</span><span class="tag">Networking (CCNA)</span><span class="tag">HTML</span><span class="tag">CSS</span></div></div>
+</div>
+</section>
+
+<section id="education">
+<h2>education</h2>
+<div class="cards two">
+<div class="card"><h3>Egyptian E-Learning University</h3><p>Information Technology, Sohag, Egypt. Coursework in programming, OOP, data structures, and databases.</p></div>
+<div class="card"><h3>Digital Egypt Pioneers Initiative</h3><p>Cybersecurity, SOC track. In progress.</p></div>
+</div>
+</section>
+
+<section id="projects">
+<h2>projects</h2>
+<p class="sub">University projects I worked on.</p>
+<div class="cards">
+<div class="card"><h3>Educational platform</h3><p>Database design for an educational platform, plus a software project built on top of it.</p><div class="tags"><span class="tag">Databases</span><span class="tag">Software engineering</span></div></div>
+<div class="card"><h3>Health insurance cost estimator</h3><p>An AI project that helps estimate how much a person would pay for health insurance.</p><div class="tags"><span class="tag">AI</span><span class="tag">Python</span></div></div>
+<div class="card"><h3>Art showcase platform</h3><p>A team project where people view artworks, vote, comment, and upload their own work.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Team project</span></div></div>
+</div>
+</section>
+
+<section id="certs">
+<h2>certificates</h2>
+<p class="sub">Certificates and courses, newest first.</p>
+<div class="tbl"><table>
+<thead><tr><th>Date</th><th>Title</th><th>Issuer</th></tr></thead>
+<tbody>
+<tr><td class="t">2026-08-20</td><td>ECPC Qualifications, Honorable Mention</td><td>ICPC Foundation</td></tr>
+<tr><td class="t">2026-08-08</td><td>AI for You (learning path, course only)</td><td>Oracle University</td></tr>
+<tr><td class="t">2026-07</td><td>AI Literacy</td><td>MCIT, Microsoft, Fast Lane</td></tr>
+<tr><td class="t">2026-06-26</td><td>AI Security Mastery: From Attacks to Defenses</td><td>ITI, Mahara-Tech</td></tr>
+<tr><td class="t">2026-05-23</td><td>CCNA: Introduction to Networks</td><td>Cisco Networking Academy</td></tr>
+<tr><td class="t">2026-03</td><td>Cyber Security, 14 hours</td><td>Creativa, Digital Egypt Pioneers</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="labs">
+<h2>lab queue</h2>
+<p class="sub">These labs are planned, not finished yet. Each one gets a short write-up when I complete it: goal, steps, tools, and what I learned.</p>
+<div class="tbl"><table>
+<thead><tr><th>Platform</th><th>Lab</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="t">TryHackMe</td><td>Intro to SIEM</td><td><span class="sev">QUEUED</span></td></tr>
+<tr><td class="t">TryHackMe</td><td>Windows Event Logs</td><td><span class="sev">QUEUED</span></td></tr>
+<tr><td class="t">TryHackMe</td><td>SOC Level 1 path</td><td><span class="sev">QUEUED</span></td></tr>
+<tr><td class="t">Splunk</td><td>Splunk: Basics</td><td><span class="sev">QUEUED</span></td></tr>
+<tr><td class="t">Splunk</td><td>Splunk: Exploring SPL</td><td><span class="sev">QUEUED</span></td></tr>
+<tr><td class="t">Wireshark</td><td>Wireshark: The Basics</td><td><span class="sev">QUEUED</span></td></tr>
+<tr><td class="t">Wireshark</td><td>Wireshark: Packet Operations</td><td><span class="sev">QUEUED</span></td></tr>
+</tbody></table></div>
+</section>
+
+<section id="contact">
+<h2>contact</h2>
+<p class="sub">Open to junior SOC and blue team roles and internships.</p>
+<div class="cmd">
+<div><b>$</b> mail <span>&nbsp;</span><a href="mailto:bebomomen15@gmail.com">bebomomen15@gmail.com</a></div>
+<div><b>$</b> linkedin <span>&nbsp;</span><a href="https://www.linkedin.com/in/bebo-momen-6ba2a630b">linkedin.com/in/bebo-momen</a></div>
+<div><b>$</b> github <span>&nbsp;</span><a href="https://github.com/Abanoub-Momen">github.com/Abanoub-Momen</a></div>
+</div>
+</section>
+
+<footer>&copy; 2026 Abanoub Momen</footer>
+</div>
+</body>
+</html>
